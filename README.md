@@ -27,3 +27,8 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### Instruction Link:
+https://dev.to/georgehanson/building-vuejs-applications-with-typescript-1j2n
+https://github.com/championswimmer/vuex-module-decorators
