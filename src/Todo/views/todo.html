@@ -1,7 +1,43 @@
-<div class="ui container">
-  <h1 class="ui header">My To-Do App!</h1>
-  <todo-frm />
-  <ul>
-    <li v-for="task in tasks"><input type="checkbox" :checked="task.completed"> {{ task.description }}</li>
-  </ul>
+<div class='ui centered card'>
+  <!-- Todo shown when we are not in editing mode. -->
+  <div class="content" v-show="!isEditing">
+    <div class='header'>
+        {{ task.content }}
+    </div>
+    <div class='meta'>
+        {{ task.isDone }}
+    </div>
+    <div class='extra content'>
+      <!-- Add edit icon -->
+      <span class='right floated edit icon' v-on:click="showForm">
+        <i class='edit icon'></i>
+      </span>
+      <!-- Add trash icon  -->
+      <span class='right floated trash icon' v-on:click="deleteTodo(task)">
+        <i class='trash icon'></i>
+      </span>
+    </div>
+  </div>
+  <!-- form is visible when we are in editing mode -->
+  <div class="content" v-show="isEditing">
+    <div class='ui form'>
+      <div class='field'>
+        <label>Title</label>
+        <input type='text' v-model="task.content" >
+      </div>
+      <div class='ui two button attached buttons'>
+        <button class='ui basic blue button' v-on:click="editTodo">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class='ui bottom attached green basic button' v-show="!isEditing &&task.isDone" disabled
+                                                      v-on:click="pendingTodo(task)">
+      Completed
+  </div>
+  <div class='ui bottom attached red basic button' v-show="!isEditing && !task.isDone"
+                                                    v-on:click="completeTodo(task)">
+      Pending
+  </div>
 </div>

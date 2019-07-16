@@ -1,0 +1,8 @@
+<div id="todo-list">
+  <p>Completed Tasks: {{doneTasks}}</p>
+  <p>Pending Tasks: {{pendingTasks}}</p>
+  <p>Total Tasks: {{totalTasks}}</p>
+  <Todo v-for="task in tasks"
+        v-bind:key ="task.id"
+        v-bind:task="task"/>
+</div>

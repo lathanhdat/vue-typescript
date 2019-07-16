@@ -1,11 +1,11 @@
 import Vue from 'vue';
-import Todo from './Todo/Todo';
+import Todos from './Todo/TodoApp';
 import router from './router';
-import store from './Todo/store/store';
+import store from './Todo/store';
 Vue.config.productionTip = false;
 
 new Vue({
   router,
   store,
-  render: h => h(Todo),
+  render: h => h(Todos),
 }).$mount('#app');
